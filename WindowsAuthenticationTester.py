@@ -2,12 +2,12 @@
 # coding: latin-1
 
 #------------------------------------------------------------------------------#
-# Security - Windows Authentication Tester (Brute Force)                       #
+# Security - Windows Authentication Tester                                     #
 # ============================================================================ #
-# Developer(s): Chavaillaz Johan                                               #
+# Note:         To be used for test purpose only                               #
+# Developer:    Chavaillaz Johan                                               #
 # Filename:     WindowsAuthenticationTester.py                                 #
 # Version:      1.0                                                            #
-# License:		Apache 2.0                                                     #
 #                                                                              #
 # Licensed to the Apache Software Foundation (ASF) under one                   #
 # or more contributor license agreements. See the NOTICE file                  #
@@ -46,7 +46,16 @@ import argparse
 #------------------------------------------------------------------------------#
 
 def checkAuthentication(domain, username, password):
-	"""Test authentication in windows"""
+	"""
+	Test authentication in windows
+	
+	:param domain: Domain in which test
+	:type domain: str
+	:param username: Account username to test
+	:type username: str
+	:param password: Account password to test
+	:type password: str
+	"""
 	try:
 		hUser = win32security.LogonUser (
 			username,
@@ -61,7 +70,17 @@ def checkAuthentication(domain, username, password):
 		return True
 
 def bruteForce(domain, username, dictionary):
-	"""Authentication test for each password in the dictionary with the given username"""
+	"""
+	Authentication test for each password in the dictionary
+	with the given user name and domain
+	
+	:param domain: Domain in which test authentication (generally computer name)
+	:type domain: str
+	:param username: Username used to test each password in given dictionary file
+	:type username: str
+	:param dictionary: Dictionary file path that contains all password
+	:type dictionary: str
+	"""
 	# Open dictionary file
 	with open(dictionary) as file:
 		# Read each line : One line = One password
@@ -86,7 +105,9 @@ if __name__ == '__main__':
 	argsIndex = 1
 	
 	# Create argument parser to help user
-	parser = argparse.ArgumentParser(description='Test user authentication with a given dictionary.')
+	parser = argparse.ArgumentParser(
+		description='Test user authentication with a given dictionary.'
+	)
 	parser.add_argument(
 		'domain', 
 		type=str,
