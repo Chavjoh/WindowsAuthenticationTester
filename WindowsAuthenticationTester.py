@@ -103,7 +103,6 @@ def bruteForce(domain, username, dictionary):
 # If this is the main module, run this
 if __name__ == '__main__':
 	argsCount = len(sys.argv)
-	argsIndex = 1
 	
 	# Create argument parser to help user
 	parser = argparse.ArgumentParser(
