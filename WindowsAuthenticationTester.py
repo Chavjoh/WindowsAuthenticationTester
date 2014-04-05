@@ -81,6 +81,7 @@ def bruteForce(domain, username, dictionary):
 	:param dictionary: Dictionary file path that contains all password
 	:type dictionary: str
 	"""
+	
 	# Open dictionary file
 	with open(dictionary) as file:
 		# Read each line : One line = One password
@@ -90,7 +91,7 @@ def bruteForce(domain, username, dictionary):
 			# Check authentication
 			if checkAuthentication(domain, username, password):
 				return password
-	
+				
 	return False
 
 #------------------------------------------------------------------------------#
@@ -135,10 +136,13 @@ if __name__ == '__main__':
 	dictionary = sys.argv[3]
 	
 	# Launch script
-	password = bruteForce(domain, username, dictionary)
+	try:
+		password = bruteForce(domain, username, dictionary)
 	
-	if not password:
-		print("Password not found in dictionary")
-	else:
-		print("Password found : " + password)
-		
+		if not password:
+			print("Password not found in dictionary")
+		else:
+			print("Password found : " + password)
+	
+	except (OSError, IOError) as e:
+		print("Dictionary not found")
