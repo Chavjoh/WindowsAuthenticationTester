@@ -3,12 +3,13 @@ WindowsAuthenticationTester
 
 Test windows authentication of a user with multiple password given in a dictionary.
 
-### Requirements
+## Requirements
 
 * Python 3.3
 * Pywin32 build 218
+* Windows 7
 
-### How to use
+## How to use
 
 Launch the script with :
 ```
@@ -20,9 +21,9 @@ Arguments :
 * **username** : Username used to test each password in given dictionary file.
 * **dictionary** : Dictionary file path that contains all password to test.
 
-### Dictionary
+## Dictionary
 
-#### Content
+### Content
 
 Each line of the dictionary correspond to a password and is terminated by a newline character ```\n```.
 
@@ -38,14 +39,14 @@ ac
 ...
 ```
 
-#### Generator
+### Generator
 
 Have a look to the project [DictionaryGeneratorPHP](https://github.com/Chavjoh/DictionaryGeneratorPHP).
 
-### Feedback
+## Feedback
 
 Don't hesitate to fork this project, improve it and make a pull request.
 
-### License
+## License
 
 This project is under Apache 2.0 License.
